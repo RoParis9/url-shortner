@@ -42,24 +42,6 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs, {
   }
 }));
 
-// Scalar Documentation (Alternative to Swagger UI)
-app.get('/docs', (req, res) => {
-  res.send(`
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>URL Shortener API - Scalar Documentation</title>
-        <script id="api-reference" data-url="/api-docs/swagger.json"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@scalar/api-reference"></script>
-    </head>
-    <body>
-        <div id="api-reference"></div>
-    </body>
-    </html>
-  `);
-});
 
 // Health check endpoint
 app.get('/health', (req, res) => {
@@ -86,7 +68,6 @@ app.get('/', (req, res) => {
     },
     documentation: {
       swagger: `${BASE_URL}/api-docs`,
-      scalar: `${BASE_URL}/docs`,
       openapi: `${BASE_URL}/api-docs/swagger.json`
     }
   });

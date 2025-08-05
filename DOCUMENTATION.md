@@ -7,7 +7,6 @@ This API provides comprehensive documentation through multiple interfaces:
 ### 🔗 Documentation URLs
 
 - **Swagger UI**: `/api-docs` - Interactive API documentation with testing capabilities
-- **Scalar Docs**: `/docs` - Modern, beautiful API documentation interface
 - **OpenAPI JSON**: `/api-docs/swagger.json` - Raw OpenAPI specification
 - **Health Check**: `/health` - API health status
 
@@ -47,37 +46,12 @@ This API provides comprehensive documentation through multiple interfaces:
 
 5. **Access Documentation**
    - Swagger UI: http://localhost:3000/api-docs
-   - Scalar Docs: http://localhost:3000/docs
    - API Root: http://localhost:3000
 
 ## 📖 API Documentation Features
 
 ### Swagger UI (`/api-docs`)
 
-**Features:**
-- ✅ Interactive API testing
-- ✅ Request/response examples
-- ✅ Authentication support
-- ✅ Schema validation
-- ✅ Try-it-out functionality
-- ✅ Request/response logging
-- ✅ Filtering and search
-
-**Customization:**
-- Custom CSS styling
-- Persistent authorization
-- Request duration display
-- Advanced filtering options
-
-### Scalar Documentation (`/docs`)
-
-**Features:**
-- 🎨 Modern, beautiful interface
-- 📱 Mobile-responsive design
-- 🔍 Advanced search capabilities
-- 📊 Interactive examples
-- 🎯 Better developer experience
-- 🌙 Dark/light mode support
 
 ## 🔐 Authentication
 
@@ -253,7 +227,7 @@ npm run test:e2e
 - [ ] Configure database connection
 - [ ] Set up SSL/TLS certificates
 - [ ] Configure reverse proxy (nginx)
-- [ ] Set up monitoring and logging
+- [ ] Set up logging
 - [ ] Configure backup strategy
 - [ ] Set up CI/CD pipeline
 
@@ -276,8 +250,6 @@ docker-compose up -d --scale api=3
 - ✅ Rate limiting protection
 - ✅ Input validation and sanitization
 - ✅ CORS configuration
-- ✅ SQL injection prevention (Prisma)
-- ✅ XSS protection
 
 ### Best Practices
 
@@ -288,22 +260,9 @@ docker-compose up -d --scale api=3
 - Regular dependency updates
 - Security headers configuration
 
-## 📈 Monitoring & Analytics
-
-### Built-in Analytics
-
-- Click tracking per URL
-- User agent analysis
-- Referrer tracking
-- Geographic data (IP-based)
-- Time-based analytics
-- Custom domain usage
-
-### Monitoring Endpoints
+### Health Endpoints
 
 - `/health` - Service health
-- `/metrics` - Performance metrics (planned)
-- `/status` - System status (planned)
 
 ## 🤝 Contributing
 
@@ -330,10 +289,6 @@ MIT License - see LICENSE file for details
 ## 🆘 Support
 
 - **Documentation**: `/api-docs` or `/docs`
-- **Issues**: GitHub Issues
-- **Email**: support@urlshortener.com
-- **Discord**: [Community Server]
+
 
 ---
-
-**Built with ❤️ using Clean Architecture principles** 

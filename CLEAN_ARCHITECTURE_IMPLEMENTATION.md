@@ -25,7 +25,7 @@ The URL Shortener application now fully implements Clean Architecture principles
 - **External Services**: Infrastructure implementations
   - `BcryptPasswordHasher`, `JwtTokenGenerator`
 - **Middleware**: Cross-cutting concerns
-  - `AuthMiddleware`, `MonitoringMiddleware`
+  - `AuthMiddleware`
 - **Dependency Injection**: `Container` class for wiring
 
 ### 4. Interface Layer (`src/interfaces/`)

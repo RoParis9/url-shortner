@@ -9,51 +9,14 @@ A comprehensive URL shortening service built with Node.js, Express, TypeScript, 
 - Docker & Docker Compose
 - npm or yarn
 
-### Setup Options
+### Setup
 
-#### **Option 1: Basic Development (Minimal)**
 ```bash
 # 1. Install dependencies
 npm install
 
-# 2. Start database only
+# 2. Start database
 docker-compose up -d db
-
-# 3. Generate Prisma client
-npx prisma generate
-
-# 4. Run migrations
-npx prisma migrate dev
-
-# 5. Start the application
-npm start
-```
-
-#### **Option 2: Development with Tracing (Recommended)**
-```bash
-# 1. Install dependencies
-npm install
-
-# 2. Start database and Jaeger
-docker-compose -f docker-compose.dev.yml up -d
-
-# 3. Generate Prisma client
-npx prisma generate
-
-# 4. Run migrations
-npx prisma migrate dev
-
-# 5. Start the application
-npm start
-```
-
-#### **Option 3: Full Monitoring Stack (Production-like)**
-```bash
-# 1. Install dependencies
-npm install
-
-# 2. Start all services (Database + API + Jaeger)
-docker-compose -f docker-compose.monitoring.yml up -d
 
 # 3. Generate Prisma client
 npx prisma generate
@@ -67,13 +30,11 @@ npm start
 
 ## 📊 Available Services
 
-| Service | URL | Description | Required |
-|---------|-----|-------------|----------|
-| API | http://localhost:3000 | Main application | ✅ |
-| Health Check | http://localhost:3000/health | API health status | ✅ |
-| API Docs | http://localhost:3000/api-docs | Swagger documentation | ✅ |
-| Scalar Docs | http://localhost:3000/docs | Alternative docs | ✅ |
-| Jaeger UI | http://localhost:16686 | Distributed tracing | 🔍 |
+| Service | URL | Description |
+|---------|-----|-------------|
+| API | http://localhost:3000 | Main application |
+| Health Check | http://localhost:3000/health | API health status |
+| API Docs | http://localhost:3000/api-docs | Swagger documentation |
 
 ## 🔧 Environment Configuration
 
@@ -83,7 +44,7 @@ Copy the environment file and configure as needed:
 cp env.example .env
 ```
 
-### Required Environment Variables
+### Environment Variables
 ```env
 # Database
 DATABASE_URL="postgresql://urluser:urlpass@localhost:5432/urldb"
@@ -95,26 +56,12 @@ JWT_REFRESH_SECRET="your-refresh-secret-key"
 # Server
 PORT=3000
 NODE_ENV=development
-```
-
-### Optional Environment Variables
-```env
-# Axiom (Log Aggregation)
-AXIOM_TOKEN="your-axiom-token"
-AXIOM_ORG_ID="your-axiom-org-id"
-AXIOM_DATASET="url-shortener-logs"
-
-# Jaeger (Distributed Tracing)
-JAEGER_SERVICE_NAME="url-shortener-api"
-JAEGER_HOST="localhost"
-JAEGER_PORT="6832"
+BASE_URL="http://localhost:3000"
 ```
 
 ## 📚 Documentation
 
 - [API Documentation](API_DOCUMENTATION.md) - Complete API reference
-- [Monitoring Guide](MONITORING.md) - Monitoring setup and usage
-- [Architecture Overview](ARCHITECTURE.md) - Clean Architecture details
 
 ## 🏗️ Architecture
 
@@ -166,23 +113,12 @@ npm run lint       # Run ESLint
 npm run format     # Format code with Prettier
 ```
 
-## 🔍 Monitoring
-
-The application includes comprehensive monitoring:
-
-- **Axiom**: Log aggregation and analysis
-- **Jaeger**: Distributed tracing
-- **Custom Metrics**: Application-specific metrics
-- **Health Checks**: System health monitoring
-
-See [MONITORING.md](MONITORING.md) for detailed setup instructions.
-
 ## 🚀 Deployment
 
 ### Docker Deployment
 ```bash
 # Build and run with Docker
-docker-compose -f docker-compose.monitoring.yml up -d
+docker-compose up -d
 ```
 
 ### Manual Deployment
